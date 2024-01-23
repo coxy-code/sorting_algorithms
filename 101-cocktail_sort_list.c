@@ -5,18 +5,22 @@
  * swap_node - Swap a node with its previous one.
  * @node: Node to be swapped.
  * @list: Pointer to the head of the linked list.
- * Return: Pointer to the node that was swapped into its position.
+ * Return: Pointer to the node that was moved.
  */
 listint_t *swap_node(listint_t *node, listint_t **list)
 {
     listint_t *back = node->prev, *current = node;
 
-    back->next = current->next;
+    if (back)
+        back->next = current->next;
+
     if (current->next)
         current->next->prev = back;
+
     current->next = back;
     current->prev = back->prev;
     back->prev = current;
+
     if (current->prev)
         current->prev->next = current;
     else
@@ -26,9 +30,9 @@ listint_t *swap_node(listint_t *node, listint_t **list)
 }
 
 /**
- * cocktail_sort_list - Implementation of the cocktail sort algorithm
- * for a doubly linked list.
- * @list: Double pointer to the head of the linked list.
+ * cocktail_sort_list - Sorts a doubly linked list of integers
+ *                      in ascending order using the Cocktail sort algorithm.
+ * @list: Pointer to the head of the linked list.
  */
 void cocktail_sort_list(listint_t **list)
 {
@@ -44,7 +48,7 @@ void cocktail_sort_list(listint_t **list)
     {
         swap_done = 0;
 
-        while (node->next)
+        while (node->next != NULL)
         {
             if (node->n > node->next->n)
             {
@@ -52,6 +56,7 @@ void cocktail_sort_list(listint_t **list)
                 swap_done = 1;
                 print_list(*list);
             }
+
             node = node->next;
         }
 
@@ -60,7 +65,7 @@ void cocktail_sort_list(listint_t **list)
 
         swap_done = 0;
 
-        while (node->prev)
+        while (node->prev != NULL)
         {
             if (node->n < node->prev->n)
             {
@@ -72,13 +77,5 @@ void cocktail_sort_list(listint_t **list)
                 node = node->prev;
         }
     }
-}
-
-/* Other functions (if any) */
-
-int main(void)
-{
-    /* Example usage or testing of your sorting functions */
-    return 0;
 }
 
