@@ -31,7 +31,7 @@ return (current);
 
 /**
 * cocktail_sort_list - Sorts a doubly linked list of integers
-*                      in ascending order using the Cocktail sort algorithm.
+* in ascending order using the Cocktail sort algorithm.
 * @list: Pointer to the head of the linked list.
 */
 void cocktail_sort_list(listint_t **list)
@@ -74,8 +74,5 @@ swap_done = 1;
 print_list(*list);
 }
 else
-node = node->prev;
-}
-}
-}
+node = node->prev; }}}
 
