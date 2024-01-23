@@ -13,6 +13,7 @@ listint_t *back = node->prev, *current = node;
 
 if (back)
 back->next = current->next;
+
 if (current->next)
 current->next->prev = back;
 
@@ -70,7 +71,7 @@ if (node->n < node->prev->n)
 {
 node = swap_node(node, list);
 swap_done = 1;
-print_list(*list)
+print_list(*list);
 }
 else
 node = node->prev;
