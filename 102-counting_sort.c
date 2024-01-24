@@ -69,14 +69,8 @@ print_array(counter, maximum + 1);
 for (i = 0; i < size; ++i)
 {
 tmp[counter[array[i]] - 1] = array[i];
-counter[array[i]]--;
-}
-
-/* Copy the sorted elements back to the original array */
+counter[array[i]]--; }
 for (i = 0; i < size; i++)
 array[i] = tmp[i];
-
 free(tmp);
-free(counter);
-}
-
+free(counter); }
